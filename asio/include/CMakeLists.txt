@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 3.11.0)
 
-project(asio.cmake VERSION 1.1.1)
+project(asio VERSION 1.1.1)
 
 find_package(Threads REQUIRED)
 
 add_library(asio INTERFACE)
+
 add_library(asio::asio ALIAS asio)
 
-#target_include_directories(asio SYSTEM INTERFACE ${asio_SOURCE_DIR}/asio/include)
-target_include_directories(asio INTERFACE asio)
+target_include_directories(asio INTERFACE ".")
 
 target_compile_definitions(asio INTERFACE ASIO_STANDALONE ASIO_NO_DEPRECATED)
 
